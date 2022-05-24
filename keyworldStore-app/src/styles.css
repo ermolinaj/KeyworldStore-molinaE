@@ -1,0 +1,23 @@
+.navbar {
+  overflow: hidden;
+  background-color: rgb(245, 240, 223);
+  display:flex;
+  justify-content: space-between;
+  align-items: center;  
+}
+
+.navbar h1 {
+  font-weight: bold;
+}
+
+.navbar a {
+  font-size: 11px;
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+  color: #fff;
+}
