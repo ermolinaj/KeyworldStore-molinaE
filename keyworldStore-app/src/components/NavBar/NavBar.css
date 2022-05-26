@@ -1,0 +1,23 @@
+.header__container {
+    overflow: hidden;
+    background-color: rgb(245, 240, 223);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;  
+  }
+  
+  .header__logo {
+    font-weight: bold;
+  }
+  
+  .header__navlink {
+    font-size: 11px;
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+  }
+  
+  .header__navlink:hover {
+    background-color: #000;
+    color: #fff;
+  }
