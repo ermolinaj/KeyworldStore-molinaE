@@ -1,0 +1,12 @@
+.item__name{
+    font-size: 16px
+}
+
+.item__price {
+    font-weight: bold;
+}
+
+.item__image {
+    width: 200px;
+    height: 200px;
+}
