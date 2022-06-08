@@ -1,34 +1,31 @@
-import {useEffect, useState} from "react"
-import ItemDetail from "../ItemDetail/ItemDetail"
-import {obtainProduct} from '../../mocks/DataAccess.js'
+import {Fragment, useEffect, useState} from "react"
+import './Item.css'
 
+const Item = ({item}) => {
 
-const ItemDetailContainer = ({itemId}) => {
-    const [item, setItem] = useState([])
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        setLoading(true)
-
-        obtainProduct(itemId)
-            .then((response) => {
-                setItem(response)
-            })
-            .catch((error) => {
-                console.log('ERROR: ', error)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
-    }, [])
-
-    console.log(item)
-
     return (
-        loading
-            ? <p>Cargando Detalles del Producto...</p>
-            : <ItemDetail item={item}/>
+        <Fragment key={item.id}>
+            loading
+                ? <span>Cargando Productos...</span>
+                : <ItemList itemsIds={itemIds}/>
+            <h2 className="item__name">{item.name}</h2>
+            <img src={"images/"+ item.imageName} className="item__image" alt="" />
+            <p className="item__description">{item.description}</p>
+            <dl>
+                {/* TODO: create a component for the description */}
+                { item.productInformation.map(pi => (
+                    <>
+                        <dt> { pi.key} </dt>
+                        <dd> { pi.value } </dd>
+                    </> 
+                ))}
+            </dl>
+            <p className="item__price">${item.price}</p>
+            <button className="item__addToCartButton">Agregar al Carrito</button>
+        </Fragment>
     )
 }
 
-export default ItemDetailContainer
+export default Item

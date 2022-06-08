@@ -1,10 +1,16 @@
-import Item from "../Item/Item"
+import { useState } from "react"
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
+import {obtainAllProductIds} from '../../mocks/DataAccess.js'
 
-const ItemList = ({items}) => {
+const ItemList = () => {
+
+    const itemIds = obtainAllProductIds()
+    console.log(itemIds)
+
     return (
         <div>
-            {
-                items.map((item) => <Item key={item.id} item={item}/>)
+            { 
+                itemIds.map((itemId) => <ItemDetailContainer key={itemId} itemId={itemId}/>) 
             }
         </div>
     )

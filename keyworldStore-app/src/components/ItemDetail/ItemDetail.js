@@ -1,7 +1,7 @@
 import {Fragment} from "react"
-import './Item.css'
+import './ItemDetail.css';
 
-const Item = ({item}) => {
+const ItemDetail = ({item}) => {
     return (
         <Fragment key={item.id}>
             <h2 className="item__name">{item.name}</h2>
@@ -17,9 +17,10 @@ const Item = ({item}) => {
                 ))}
             </dl>
             <p className="item__price">${item.price}</p>
+            {/* TODO: quitar el boton de agregar carrito de Item detail y renderizar en un componente superior */}
             <button className="item__addToCartButton">Agregar al Carrito</button>
         </Fragment>
     )
-}
-
-export default Item
+}               
+           
+export default ItemDetail
